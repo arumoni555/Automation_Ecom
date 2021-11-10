@@ -82,15 +82,15 @@ public class TestScenarios extends BaseClass {
     @Test
     public void BulkProducts() throws JsonProcessingException {
 
-        productDescription payload = new productDescription("DELL","DELL 3000");
-        PayloadIssue payload1 = new PayloadIssue("Inspiron 3511","2000","47,900","payload");
+
+        PayloadIssue payload = new PayloadIssue("Inspiron 3511","2000","47,900","DELL 3000");
 
         ObjectMapper mapper = new ObjectMapper();
-        String p = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(payload1);
+        String p = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(payload);
         System.out.println(p);
 //
         Response responsePost = RestAssured.given().header("Content-Type", "application/json")
-                .header("Authorization","Bearer"+"tokenGenerated").body(payload1)
+                .header("Authorization","Bearer"+"tokenGenerated").body(payload)
                 .when().post("/bulk_products");
 
         responsePost.prettyPrint();
