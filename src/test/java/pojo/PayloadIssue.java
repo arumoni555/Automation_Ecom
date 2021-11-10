@@ -1,16 +1,29 @@
 package pojo;
 
+import java.util.List;
+import javax.annotation.Generated;
+
+@Generated("jsonschema2pojo")
 public class PayloadIssue {
+
     private String model;
     private String quantity;
     private String price;
-    private productDescription product_description;
+    private List<pojo.productDescription> productDescription = null;
 
-    public PayloadIssue(String model, String quantity, String price, productDescription product_description) {
+    public PayloadIssue() {
+    }
+
+
+    public PayloadIssue(String model, String quantity, String price, List<pojo.productDescription> productDescription) {
+        super();
         this.model = model;
         this.quantity = quantity;
         this.price = price;
-        this.product_description = product_description;
+        this.productDescription = productDescription;
+    }
+
+    public PayloadIssue(String model, String quantity, String price, Comparable<String> productDescription) {
     }
 
     public String getModel() {
@@ -37,11 +50,12 @@ public class PayloadIssue {
         this.price = price;
     }
 
-    public productDescription getProduct_description() {
-        return product_description;
+    public List<pojo.productDescription> getProductDescription() {
+        return productDescription;
     }
 
-    public void setProduct_description(productDescription product_description) {
-        this.product_description = product_description;
+    public void setProductDescription(List<pojo.productDescription> productDescription) {
+        this.productDescription = productDescription;
     }
+
 }
